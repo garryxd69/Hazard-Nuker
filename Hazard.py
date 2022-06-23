@@ -2,6 +2,9 @@
 # Copyright (c) 2021 Rdimo#6969 | https://Cheataway.com
 # Hazard Nuker under the GNU General Public Liscense v2 (1991).
 
+import sys
+sys.dont_write_bytecode = True
+
 import multiprocessing
 import keyboard
 import base64

