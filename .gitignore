@@ -5,6 +5,9 @@ icon.ico
 test.py
 chromedriver.exe
 
-**/__pycache__/
+/__pycache__/
+/util/__pycache__/
+/util/plugins/__pycache__/
+
 dist
 QR-Code
